@@ -9,7 +9,7 @@ func main() {
 
     let client = Client(accessToken: accessToken)
     dispatchGroup.enter()
-    client.graphQL(ListQuery()) { result in
+    client.listRepositories { result in
         switch result {
         case .success(let repos):
             repos.forEach { print($0.nameWithOwner) }

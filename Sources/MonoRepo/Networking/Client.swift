@@ -19,7 +19,7 @@ public final class Client {
     // MARK: - Querying
 
     @discardableResult
-    public func graphQL<Q: GraphQLQuery>(_ query: Q, completion: @escaping (Result<Q.Output, Error>) -> Void)
+    func graphQL<Q: GraphQLQuery>(_ query: Q, completion: @escaping (Result<Q.Output, Error>) -> Void)
         -> URLSessionDataTask
     {
         var request = URLRequest(url: baseURL.appendingPathComponent("graphql"))

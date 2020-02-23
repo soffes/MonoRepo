@@ -1,6 +1,6 @@
 import Foundation
 
-public final class ListQuery: GraphQLQuery {
+final class ListQuery: GraphQLQuery {
 
     // MARK: - Types
 
@@ -41,13 +41,9 @@ public final class ListQuery: GraphQLQuery {
         var nodes: [Repository]
     }
 
-    // MARK: - Initializers
-
-    public init() {}
-
     // MARK: - GraphQLQuery
 
-    public var query = """
+    var query = """
 {
   viewer {
     organizations(first: 100) {
@@ -77,7 +73,7 @@ public final class ListQuery: GraphQLQuery {
 }
 """
 
-    public func transform(_ data: Data) throws -> [Repository] {
+    func transform(_ data: Data) throws -> [Repository] {
         return try JSONDecoder().decode(OuterResponse.self, from: data).data.viewer.repos
     }
 }

@@ -62,6 +62,10 @@ Fork and clone a repo to your local disk:
 
     $ mr fork apple/swift soffes/swift
 
-Backup everything to an external disk (likely needs more configuration):
+Download everything to an external disk (likely needs more configuration):
 
     $ mr backup --destination=/Volumes/Backup/Code
+
+Synchronize local folders and remotes with origin if things are renamed on GitHub:
+
+    $ mr sync
